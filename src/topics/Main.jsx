@@ -1,9 +1,10 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import ImageCarousel from "../components/Carrousel";
 
 export default function Main () {
     return (
-        <Box bgColor="blue" minH="50vh" id="home">
-           <Heading>Tópico explicando</Heading> 
+        <Box bgColor="blue" id="home">
+           <ImageCarousel />
         </Box>
     )
 }
