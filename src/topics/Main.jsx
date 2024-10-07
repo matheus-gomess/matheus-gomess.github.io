@@ -3,7 +3,7 @@ import ImageCarousel from "../components/Carrousel";
 
 export default function Main () {
     return (
-        <Box bgColor="blue" id="home">
+        <Box id="home">
            <ImageCarousel />
         </Box>
     )

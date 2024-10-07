@@ -16,7 +16,7 @@ export default function InfoHeader() {
     <Container
       minWidth="100%"
       bgColor="#0B0301"
-      height="51px"
+      height="5vh"
       color="#969696"
       display="flex"
       alignItems="center"

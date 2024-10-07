@@ -1,4 +1,4 @@
-import { Box, IconButton } from "@chakra-ui/react";
+import { Box, Button, IconButton, Link, Text } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import Slider from "react-slick";
 import { useRef, useEffect, useState } from "react";
@@ -12,14 +12,16 @@ const ImageCarousel = () => {
   const sliderRef = useRef(null);
   const [progress, setProgress] = useState(100);
   const [intervalId, setIntervalId] = useState(null);
-  const duration = 10000;
+  const [currentIndex, setCurrentIndex] = useState(0); // Para identificar o slide atual
+  const [opacity, setOpacity] = useState(1);
+  const duration = 15000;
 
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 700,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 7500,
     slidesToShow: 1,
     slidesToScroll: 1,
     cssEase: "linear",
@@ -39,7 +41,12 @@ const ImageCarousel = () => {
         <ul style={{ margin: 0 }}>{dots}</ul>
       </div>
     ),
-    beforeChange: () => {
+    beforeChange: (current, next) => {
+      setOpacity(0);
+      setTimeout(() => {
+        setCurrentIndex(next); // Atualiza o índice para personalizar a posição
+        setOpacity(1);
+      }, 1500);
       resetProgress();
     },
   };
@@ -57,6 +64,115 @@ const ImageCarousel = () => {
     resetProgress();
     return () => clearInterval(intervalId);
   }, []);
+
+  // Função para retornar estilos personalizados com base no índice atual
+  const getTextStyles = () => {
+    switch (currentIndex) {
+      case 0: // Estilos para o primeiro slide (texto alinhado à esquerda e verticalmente)
+        return (
+          <Box
+            position="absolute"
+            top="40%" // Alinhado verticalmente ao centro
+            left="15%" // Mais à esquerda
+            transform="translateY(-50%)"
+            zIndex={2}
+            fontFamily="DM Sans, sans-serif"
+            fontWeight="400"
+            color="white"
+            textAlign="left"
+            opacity={opacity}
+            transition="opacity 1.5s ease-in-out"
+            whiteSpace="pre-wrap"
+          >
+            <Text fontSize="20px">Transforme sua ideia em uma</Text>
+            <Text fontSize="70px" fontWeight="bold">
+              Presença digital única e cativante. <br />
+              Crie o site dos seus sonhos{" "}
+              <Text as="span" color="#005AF5">
+                hoje
+              </Text>
+              !
+            </Text>
+            <Link href="#products" style={{ textDecoration: "none" }}>
+              <Button
+                width="172px"
+                height="60px"
+                borderRadius="0px"
+                bgColor="#005AF5"
+                _hover={{ bgColor: "#003ba1" }}
+              >
+                Comece Agora!
+              </Button>
+            </Link>
+          </Box>
+        );
+      case 1: // Estilos para o segundo slide (texto centralizado em duas linhas)
+        return (
+          <Box
+            position="absolute"
+            top="50%"
+            left="50%"
+            transform="translate(-50%, -50%)" // Centraliza o texto
+            zIndex={2}
+            fontSize="40px"
+            fontFamily="DM Sans, sans-serif"
+            fontWeight="400"
+            color="white"
+            textAlign="center" // Alinha o texto no centro
+            opacity={opacity}
+            transition="opacity 1.5s ease-in-out"
+            whiteSpace="pre-wrap"
+          >
+            A porta de entrada para o sucesso online começa com um site
+            profissional. Vamos construir o seu juntos!
+            <Link href="#products" style={{ textDecoration: "none" }}>
+              <Button
+                width="172px"
+                height="60px"
+                borderRadius="0px"
+                bgColor="#005AF5"
+                _hover={{ bgColor: "#003ba1" }}
+              >
+                Comece Agora!
+              </Button>
+            </Link>
+          </Box>
+        );
+      case 2: // Estilos para o terceiro slide (mantém centralizado padrão)
+        return (
+          <Box
+            position="absolute"
+            bottom="20%" // Um pouco mais para cima da base
+            left="50%"
+            transform="translateX(-50%)"
+            zIndex={2}
+            fontSize="40px"
+            fontFamily="DM Sans, sans-serif"
+            fontWeight="400"
+            color="white"
+            textAlign="center"
+            opacity={opacity}
+            transition="opacity 1.5s ease-in-out"
+            whiteSpace="pre-wrap"
+          >
+            Seja visto, seja lembrado. Construa uma vitrine virtual que impressiona!
+            <Link href="#products" style={{ textDecoration: "none" }}>
+              <Button
+                width="172px"
+                height="60px"
+                borderRadius="0px"
+                bgColor="#005AF5"
+                _hover={{ bgColor: "#003ba1" }}
+              >
+                Comece Agora!
+              </Button>
+            </Link>
+          </Box>
+        );
+      default:
+        return {};
+    }
+  };
 
   return (
     <Box position="relative" width="full" overflow="hidden">
@@ -85,7 +201,7 @@ const ImageCarousel = () => {
 
       <Slider ref={sliderRef} {...settings}>
         {images.map((src, index) => (
-          <Box key={index} height="90vh">
+          <Box key={index} height="95vh">
             <img
               src={src}
               alt={`Slide ${index}`}
@@ -94,6 +210,9 @@ const ImageCarousel = () => {
           </Box>
         ))}
       </Slider>
+
+      {getTextStyles()}
+
       <Box
         position="absolute"
         bottom="30px"
@@ -107,7 +226,7 @@ const ImageCarousel = () => {
           height="100%"
           width={`${progress}%`}
           borderRadius="20px"
-          backgroundColor="#2abadd"
+          backgroundColor="#005AF5"
           transition="width 0.1s linear"
         />
       </Box>
@@ -119,7 +238,7 @@ const ImageCarousel = () => {
         }
 
         .slick-dots li.slick-active button:before {
-          color: #2abadd;
+          color: #005AF5;
           opacity: 1;
         }
       `}</style>

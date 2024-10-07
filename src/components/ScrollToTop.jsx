@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { IconButton, Tooltip } from "@chakra-ui/react";
-import { ChevronUpIcon } from "@chakra-ui/icons";
+import { ArrowUpIcon } from "@chakra-ui/icons";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,7 +15,7 @@ const ScrollToTop = () => {
 
   // Função para verificar a posição do scroll
   const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
+    if (window.scrollY > 300) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -39,10 +39,10 @@ const ScrollToTop = () => {
             right="20px"
             size="lg"
             onClick={scrollToTop}
-            icon={<ChevronUpIcon boxSize={6} color="black"/>}
+            icon={<ArrowUpIcon boxSize={6} />}
             aria-label="Scroll to top"
-            bgColor="#ffffff78"
-            _hover={{}}
+            bgColor="rgb(26, 31, 36)"
+            _hover={{bgColor:"rgb(0, 99, 217)"}}
             borderRadius="full"
           />
         </Tooltip>
