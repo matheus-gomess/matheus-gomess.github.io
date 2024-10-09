@@ -39,7 +39,7 @@ const ScrollToTop = () => {
             right="20px"
             size="lg"
             onClick={scrollToTop}
-            icon={<ArrowUpIcon boxSize={6} />}
+            icon={<ArrowUpIcon boxSize={6} color="white" />}
             aria-label="Scroll to top"
             bgColor="rgb(26, 31, 36)"
             _hover={{bgColor:"rgb(0, 99, 217)"}}

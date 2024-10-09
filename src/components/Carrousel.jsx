@@ -12,7 +12,7 @@ const ImageCarousel = () => {
   const sliderRef = useRef(null);
   const [progress, setProgress] = useState(100);
   const [intervalId, setIntervalId] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(0); // Para identificar o slide atual
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [opacity, setOpacity] = useState(1);
   const duration = 15000;
 
@@ -98,6 +98,7 @@ const ImageCarousel = () => {
                 width="172px"
                 height="60px"
                 borderRadius="0px"
+                color="white"
                 bgColor="#005AF5"
                 _hover={{ bgColor: "#003ba1" }}
               >
@@ -130,6 +131,7 @@ const ImageCarousel = () => {
                 width="172px"
                 height="60px"
                 borderRadius="0px"
+                color="white"
                 bgColor="#005AF5"
                 _hover={{ bgColor: "#003ba1" }}
               >
@@ -161,6 +163,7 @@ const ImageCarousel = () => {
                 width="172px"
                 height="60px"
                 borderRadius="0px"
+                color="white"
                 bgColor="#005AF5"
                 _hover={{ bgColor: "#003ba1" }}
               >

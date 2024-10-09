@@ -9,7 +9,7 @@ export default function ButtonTopics({ title, href, key }) {
       _hover={{}}
       _active={{ bg: "rgba(0, 0, 0, 0.2)" }}
       css={{
-        color:"#ffffff",
+        color:"black",
         textTransform: "uppercase",
         padding: "0px",
         fontSize: "14pt",
@@ -21,7 +21,7 @@ export default function ButtonTopics({ title, href, key }) {
           content: '" "',
           width: "0%",
           height: "4px",
-          backgroundColor: "white",
+          backgroundColor: "black",
           position: "absolute",
           bottom: "4px",
           left: "0px",
