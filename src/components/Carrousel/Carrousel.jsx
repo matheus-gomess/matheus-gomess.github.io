@@ -1,10 +1,11 @@
-import { Box, Button, IconButton, Link, Text } from "@chakra-ui/react";
+import { Box, IconButton, Text } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import Slider from "react-slick";
 import { useRef, useEffect, useState } from "react";
-import codeImage from "../assets/codeImage.png";
-import code2 from "../assets/code2.png";
-import macbookImage from "../assets/macbookCode.png";
+import codeImage from "../../assets/codeImage.png";
+import code2 from "../../assets/code2.png";
+import macbookImage from "../../assets/macbookCode.png";
+import ButtonHREF from "./Button";
 
 const images = [codeImage, code2, macbookImage];
 
@@ -14,14 +15,13 @@ const ImageCarousel = () => {
   const [intervalId, setIntervalId] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [opacity, setOpacity] = useState(1);
-  const duration = 15000;
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 700,
     autoplay: true,
-    autoplaySpeed: 7500,
+    autoplaySpeed: 9000,
     slidesToShow: 1,
     slidesToScroll: 1,
     cssEase: "linear",
@@ -55,7 +55,7 @@ const ImageCarousel = () => {
     setProgress(100);
     clearInterval(intervalId);
     const id = setInterval(() => {
-      setProgress((prev) => (prev > 0 ? prev - 100 / (duration / 100) : 0));
+      setProgress((prev) => (prev > 0 && prev - 100 / 100));
     }, 100);
     setIntervalId(id);
   };
@@ -84,7 +84,7 @@ const ImageCarousel = () => {
             transition="opacity 1.5s ease-in-out"
             whiteSpace="pre-wrap"
           >
-            <Text fontSize="20px">Transforme sua ideia em uma</Text>
+            <Text fontSize="25px">Transforme sua ideia em uma</Text>
             <Text fontSize="70px" fontWeight="bold">
               Presença digital única e cativante. <br />
               Crie o site dos seus sonhos{" "}
@@ -93,18 +93,7 @@ const ImageCarousel = () => {
               </Text>
               !
             </Text>
-            <Link href="#products" style={{ textDecoration: "none" }}>
-              <Button
-                width="172px"
-                height="60px"
-                borderRadius="0px"
-                color="white"
-                bgColor="#005AF5"
-                _hover={{ bgColor: "#003ba1" }}
-              >
-                Comece Agora!
-              </Button>
-            </Link>
+            <ButtonHREF />
           </Box>
         );
       case 1: // Estilos para o segundo slide (texto centralizado em duas linhas)
@@ -117,27 +106,26 @@ const ImageCarousel = () => {
             zIndex={2}
             fontSize="40px"
             fontFamily="DM Sans, sans-serif"
-            fontWeight="400"
             color="white"
-            textAlign="center" // Alinha o texto no centro
             opacity={opacity}
             transition="opacity 1.5s ease-in-out"
             whiteSpace="pre-wrap"
           >
-            A porta de entrada para o sucesso online começa com um site
-            profissional. Vamos construir o seu juntos!
-            <Link href="#products" style={{ textDecoration: "none" }}>
-              <Button
-                width="172px"
-                height="60px"
-                borderRadius="0px"
-                color="white"
-                bgColor="#005AF5"
-                _hover={{ bgColor: "#003ba1" }}
+            <Text fontSize="70px" fontWeight="bold">
+              A porta de entrada para o sucesso online começa com um{" "}
+              <Text
+                as="span"
+                textDecoration="underline"
+                textDecorationColor="#003ba1"
               >
-                Comece Agora!
-              </Button>
-            </Link>
+                website
+              </Text>
+              .
+            </Text>
+            <Text textDecoration="underline" textDecorationColor="#003ba1">
+              Vamos construir o seu juntos!
+            </Text>
+            <ButtonHREF />
           </Box>
         );
       case 2: // Estilos para o terceiro slide (mantém centralizado padrão)
@@ -152,24 +140,39 @@ const ImageCarousel = () => {
             fontFamily="DM Sans, sans-serif"
             fontWeight="400"
             color="white"
-            textAlign="center"
             opacity={opacity}
             transition="opacity 1.5s ease-in-out"
             whiteSpace="pre-wrap"
           >
-            Seja visto, seja lembrado. Construa uma vitrine virtual que impressiona!
-            <Link href="#products" style={{ textDecoration: "none" }}>
-              <Button
-                width="172px"
-                height="60px"
-                borderRadius="0px"
-                color="white"
-                bgColor="#005AF5"
-                _hover={{ bgColor: "#003ba1" }}
+            <Text fontSize="70px" fontStyle="italic">
+              "Seja{" "}
+              <Text
+                as="span"
+                textDecoration="underline"
+                textDecorationColor="#003ba1"
               >
-                Comece Agora!
-              </Button>
-            </Link>
+                visto
+              </Text>{" "}
+              ,
+              <br />
+              seja{" "}
+              <Text
+                as="span"
+                textDecoration="underline"
+                textDecorationColor="#003ba1"
+              >
+                lembrado
+              </Text>
+              ."
+            </Text>
+            <Text fontWeight="bold" fontSize="35px">
+              Construa uma vitrine virtual que{" "}
+              <Text as="span" color="#005AF5">
+                impressiona
+              </Text>
+              !
+            </Text>
+            <ButtonHREF />
           </Box>
         );
       default:
@@ -241,7 +244,7 @@ const ImageCarousel = () => {
         }
 
         .slick-dots li.slick-active button:before {
-          color: #005AF5;
+          color: #005af5;
           opacity: 1;
         }
       `}</style>

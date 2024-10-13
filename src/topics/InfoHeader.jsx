@@ -23,6 +23,7 @@ export default function InfoHeader() {
       fontWeight="400"
       fontFamily="DM Sans, sans-serif"
       fontSize="13px"
+      id="home"
     >
       <Container display="flex" minWidth="fit-content">
         <Container display="flex" alignItems="center" minWidth="fit-content">

@@ -28,14 +28,14 @@ export default function Header() {
         padding="20px"
         display="flex"
         justifyContent="space-between"
-        maxH="10vh"
+        maxH="72px"
         borderBottom="1px"
         alignItems="center"
         w="100%"
         position="fixed"
         bg="white"
         top="0px"
-        boxShadow="0 5px 10px rgba(0, 0, 0, 0.1)"
+        boxShadow="0 10px 35px rgba(0, 0, 0, 0.1)"
         zIndex="1"
         initial={{ y: -100, opacity: 0 }} // Estado inicial
         animate={{ y: 0, opacity: 1 }} // Estado animado ao aparecer

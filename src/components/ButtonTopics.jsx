@@ -10,10 +10,10 @@ export default function ButtonTopics({ title, href, key }) {
       _active={{ bg: "rgba(0, 0, 0, 0.2)" }}
       css={{
         color:"black",
-        textTransform: "uppercase",
+        fontFamily: "DM Sans, sans-serif",
         padding: "0px",
-        fontSize: "14pt",
-        fontWeight: "700",
+        fontSize: "18px",
+        fontWeight: "500",
         "&:hover::after": {
           width: "110%",
         },
@@ -21,7 +21,7 @@ export default function ButtonTopics({ title, href, key }) {
           content: '" "',
           width: "0%",
           height: "4px",
-          backgroundColor: "black",
+          backgroundColor: "#0063D9",
           position: "absolute",
           bottom: "4px",
           left: "0px",
