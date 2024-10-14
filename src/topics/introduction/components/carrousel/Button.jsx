@@ -2,7 +2,7 @@ import { Link, Button } from "@chakra-ui/react";
 
 export default function ButtonHREF({ scale = 1 }) {
   return (
-    <Link href="#outset" style={{ textDecoration: "none" }}>
+    <Link href="#start" style={{ textDecoration: "none" }}>
       <Button
         width={`${172 * scale}px`}
         height={`${60 * scale}px`}

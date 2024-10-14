@@ -7,8 +7,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { AnimatePresence } from "framer-motion"; // Importar AnimatePresence
+import { AnimatePresence } from "framer-motion";
 import Introduction from "./topics/introduction/Introduction";
+import Products from "./topics/products/Products";
+import Examples from "./topics/examples/Examples";
 
 function App() {
   const [showHeader, setShowHeader] = useState(false);
@@ -47,6 +49,8 @@ function App() {
       </AnimatePresence>
       <Introduction />
       <Start />
+      <Examples />
+      <Products />
       <Contacts />
       <ToastContainer
         position="top-center"

@@ -3,7 +3,7 @@ import PhotoStart from "../../assets/photoStart.png";
 
 export default function Outset() {
   return (
-    <Box minH="100vh" id="outset" paddingRight="300px" paddingLeft="300px" paddingTop="120px">
+    <Box minH="85vh" id="start" paddingRight="300px" paddingLeft="300px" paddingTop="120px">
       <Box display="flex" gap="200px">
         <Stack spacing={4} maxW="1200px" mx="auto">
           <Text fontSize="sm" color="gray.500" textTransform="uppercase">
