@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import Main from "./topics/Main";
-import Products from "./topics/Products";
-import Contacts from "./topics/Contacts";
-import InfoHeader from "./topics/InfoHeader";
+import Start from "./topics/start/Start";
+import Contacts from "./topics/contacts/Contacts";
 import ScrollToTop from "./components/ScrollToTop";
-import Header from "./components/Header";
+import Header from "./components/header/Header";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AnimatePresence } from "framer-motion"; // Importar AnimatePresence
+import Introduction from "./topics/introduction/Introduction";
 
 function App() {
   const [showHeader, setShowHeader] = useState(false);
@@ -35,7 +34,7 @@ function App() {
       className="App"
       style={{
         overflow: "hidden",
-        fontFamily: "Montserrat, sans-serif",
+        fontFamily: "DM Sans, sans-serif",
         minHeight: "100vh",
         maxWidth: "100vw",
         color: "white",
@@ -44,11 +43,10 @@ function App() {
     >
       <ScrollToTop />
       <AnimatePresence>
-        {showHeader && <Header />} {/* Envolver com AnimatePresence */}
+        {showHeader && <Header />}
       </AnimatePresence>
-      <InfoHeader />
-      <Main />
-      <Products />
+      <Introduction />
+      <Start />
       <Contacts />
       <ToastContainer
         position="top-center"

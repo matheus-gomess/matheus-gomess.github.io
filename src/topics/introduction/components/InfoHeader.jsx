@@ -21,9 +21,8 @@ export default function InfoHeader() {
       display="flex"
       alignItems="center"
       fontWeight="400"
-      fontFamily="DM Sans, sans-serif"
       fontSize="13px"
-      id="home"
+      id="introduction"
     >
       <Container display="flex" minWidth="fit-content">
         <Container display="flex" alignItems="center" minWidth="fit-content">

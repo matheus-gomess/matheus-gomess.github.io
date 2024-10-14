@@ -1,15 +1,15 @@
 import { Box, Image, Container } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import ProximoWebBlack from "../assets/proximowebblack.png";
+import ProximoWebBlack from "../../assets/proximowebblack.png";
 import ButtonTopics from "./ButtonTopics";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 export default function Header() {
   const routes = [
     {
       name: "Início",
-      href: "#home",
+      href: "#outset",
     },
     {
       name: "Produtos",
@@ -47,7 +47,7 @@ export default function Header() {
         </Container>
         <Container margin="0px" minWidth="250px" display="flex" alignItems="center" justifyContent="space-between">
           {routes.map((route, index) => (
-            <ButtonTopics key={index} href={route.href} title={route.name} />
+            <ButtonTopics key={index} index={index} href={route.href} title={route.name} />
           ))}
         </Container>
       </MotionBox>
