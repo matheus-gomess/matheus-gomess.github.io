@@ -188,7 +188,7 @@ export default function ImageCarousel() {
         transform="translateY(-50%)"
         onClick={() => {
           sliderRef.current.slickPrev();
-          setProgress(-2.5); // Reseta a barra ao clicar no botão
+          setProgress(-2.5);
         }}
         zIndex={2}
         borderRadius="full"
@@ -202,7 +202,7 @@ export default function ImageCarousel() {
         transform="translateY(-50%)"
         onClick={() => {
           sliderRef.current.slickNext();
-          setProgress(-2.5); // Reseta a barra ao clicar no botão
+          setProgress(-2.5);
         }}
         zIndex={2}
         borderRadius="full"
@@ -213,6 +213,7 @@ export default function ImageCarousel() {
           <Box key={index} height="95vh">
             <Image
               src={src}
+              onClick={null}
               alt={`Slide ${index}`}
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />

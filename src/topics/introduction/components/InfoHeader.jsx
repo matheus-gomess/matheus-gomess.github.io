@@ -30,7 +30,13 @@ export default function InfoHeader() {
           <MdOutlineWatchLater size={20} />
           <Text marginLeft="7px">Seg - Sex 12:00 - 20:00</Text>
         </Container>
-        <Container display="flex" alignItems="center" minWidth="fit-content" cursor="pointer" onClick={handleCopy}>
+        <Container
+          display="flex"
+          alignItems="center"
+          minWidth="fit-content"
+          cursor="pointer"
+          onClick={handleCopy}
+        >
           <PiPhoneCallLight size={20} />
           <Text marginLeft="7px">{phoneNumber}</Text>
         </Container>
@@ -49,13 +55,13 @@ export default function InfoHeader() {
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://www.instagram.com/matheusrgomes_/"
+          href="https://wa.me/5551980363636?text=Quero um site para impulsionar o meu negócio!"
         >
-          <FaInstagram
+          <FaWhatsapp
             size={20}
             color="white"
             style={{ transition: "color 0.3s ease" }}
-            onMouseOver={(e) => (e.currentTarget.style.color = "#c862dc")}
+            onMouseOver={(e) => (e.currentTarget.style.color = "green")}
             onMouseOut={(e) => (e.currentTarget.style.color = "white")}
           />
         </a>
@@ -75,18 +81,18 @@ export default function InfoHeader() {
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://wa.me/5551980363636?text=Quero um site para impulsionar o meu negócio!"
+          href="https://www.instagram.com/matheusrgomes_/"
         >
-          <FaWhatsapp
+          <FaInstagram
             size={20}
             color="white"
             style={{ transition: "color 0.3s ease" }}
-            onMouseOver={(e) => (e.currentTarget.style.color = "green")}
+            onMouseOver={(e) => (e.currentTarget.style.color = "#c862dc")}
             onMouseOut={(e) => (e.currentTarget.style.color = "white")}
           />
         </a>
       </Container>
-      <ChoosingTheme color="white"/>
+      <ChoosingTheme color="white" />
     </Container>
   );
 }

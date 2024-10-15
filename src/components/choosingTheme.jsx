@@ -1,6 +1,6 @@
 import { IconButton, useColorMode } from "@chakra-ui/react";
 import { IoMdMoon, IoMdSunny } from "react-icons/io";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ChoosingTheme({ color }) {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -16,29 +16,31 @@ export default function ChoosingTheme({ color }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.25 }}
       >
-        {colorMode === "dark" ? (
-          <motion.div
-            key="moon"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <IoMdMoon size={22} color={color} />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="sunny"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <IoMdSunny size={22} color={color} />
-          </motion.div>
-        )}
+        <AnimatePresence mode="wait" initial={false}>
+          {colorMode === "dark" ? (
+            <motion.div
+              key="moon"
+              initial={{ y: -10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 10, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+            >
+              <IoMdMoon size={22} color={color} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="sunny"
+              initial={{ y: -10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 10, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+            >
+              <IoMdSunny size={22} color={color} />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </IconButton>
     </div>
   );
