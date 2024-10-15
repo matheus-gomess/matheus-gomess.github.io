@@ -1,4 +1,4 @@
-import { Box, IconButton, Text } from "@chakra-ui/react";
+import { Box, IconButton, Image, Text } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import Slider from "react-slick";
 import { useRef, useState, useEffect } from "react";
@@ -9,7 +9,7 @@ import ButtonHREF from "./Button";
 
 const images = [codeImage, code2, macbookImage];
 
-const ImageCarousel = () => {
+export default function ImageCarousel() {
   const sliderRef = useRef(null);
   const [progress, setProgress] = useState(100);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,6 +27,7 @@ const ImageCarousel = () => {
     slidesToScroll: 1,
     cssEase: "linear",
     pauseOnHover: false,
+    draggable: false,
     appendDots: (dots) => (
       <div
         style={{
@@ -48,12 +49,8 @@ const ImageCarousel = () => {
         setCurrentIndex(next);
         setOpacity(1);
       }, 700);
-      resetProgress(); // Reseta a barra ao mudar de slide
+      setProgress(-2.5);
     },
-  };
-
-  const resetProgress = () => {
-    setProgress(-2.5); // Reseta a barra para 0
   };
 
   useEffect(() => {
@@ -191,7 +188,7 @@ const ImageCarousel = () => {
         transform="translateY(-50%)"
         onClick={() => {
           sliderRef.current.slickPrev();
-          resetProgress(); // Reseta a barra ao clicar no botão
+          setProgress(-2.5); // Reseta a barra ao clicar no botão
         }}
         zIndex={2}
         borderRadius="full"
@@ -205,7 +202,7 @@ const ImageCarousel = () => {
         transform="translateY(-50%)"
         onClick={() => {
           sliderRef.current.slickNext();
-          resetProgress(); // Reseta a barra ao clicar no botão
+          setProgress(-2.5); // Reseta a barra ao clicar no botão
         }}
         zIndex={2}
         borderRadius="full"
@@ -214,7 +211,7 @@ const ImageCarousel = () => {
       <Slider ref={sliderRef} {...settings}>
         {images.map((src, index) => (
           <Box key={index} height="95vh">
-            <img
+            <Image
               src={src}
               alt={`Slide ${index}`}
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
@@ -257,5 +254,3 @@ const ImageCarousel = () => {
     </Box>
   );
 };
-
-export default ImageCarousel;

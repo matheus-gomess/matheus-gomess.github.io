@@ -4,6 +4,7 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { PiPhoneCallLight } from "react-icons/pi";
 import { toast } from "react-toastify";
+import ChoosingTheme from "../../../components/choosingTheme";
 
 export default function InfoHeader() {
   const phoneNumber = "+55 51 98036-3636";
@@ -15,7 +16,7 @@ export default function InfoHeader() {
   return (
     <Container
       minWidth="100%"
-      bgColor="#0B0301"
+      bgColor="#0a0a0a"
       height="5vh"
       color="#969696"
       display="flex"
@@ -85,6 +86,7 @@ export default function InfoHeader() {
           />
         </a>
       </Container>
+      <ChoosingTheme color="white"/>
     </Container>
   );
 }
