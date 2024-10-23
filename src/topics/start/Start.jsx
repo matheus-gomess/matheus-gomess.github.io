@@ -3,23 +3,33 @@ import PhotoStart from "../../assets/photoStart.png";
 
 export default function Outset() {
   return (
-    <Box minH="85vh" id="start" paddingRight="300px" paddingLeft="300px" paddingTop="120px">
+    <Box
+      minH="85vh"
+      id="start"
+      paddingRight="300px"
+      paddingLeft="300px"
+      paddingTop="120px"
+      paddingBottom="80px"
+    >
       <Box display="flex" gap="200px">
         <Stack spacing={4} maxW="1200px" mx="auto">
           <Text fontSize="sm" color="#969696" textTransform="uppercase">
-            Our Services
+            Nosso propósito
           </Text>
           <Text fontSize="5xl" fontWeight="bold">
-            Your business goals are our priority
+            Fazer sua ideia estar aonde todo mundo está, na internet
           </Text>
           <Text fontSize="lg" maxW="600px">
-            Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation.
+            Hoje, o mundo inteiro está conectado. Com milhões de pessoas
+            acessando a internet diariamente, ter sua ideia ou negócio presente
+            nesse espaço é essencial. Não importa qual seja o seu projeto, um
+            blog, loja virtual, ou aplicativo.
           </Text>
           <Text fontSize="lg" maxW="600px">
-            Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam.
+            Estar online aumenta suas chances de alcançar seu
+            público-alvo. Nós ajudamos você a transformar sua ideia em uma
+            presença digital forte e eficaz, conectando seu projeto às pessoas
+            certas.
           </Text>
         </Stack>
         <Container padding="0px" margin="0px" maxH="570px" maxW="380px">

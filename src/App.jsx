@@ -11,9 +11,11 @@ import { AnimatePresence } from "framer-motion";
 import Introduction from "./topics/introduction/Introduction";
 import Products from "./topics/products/Products";
 import Examples from "./topics/examples/Examples";
+import { useColorMode } from "@chakra-ui/react";
 
 function App() {
   const [showHeader, setShowHeader] = useState(false);
+  const { colorMode } = useColorMode();
 
   const handleScroll = () => {
     if (window.scrollY > window.innerHeight) {
@@ -51,11 +53,12 @@ function App() {
       <Products />
       <Contacts />
       <ToastContainer
-        position="top-center"
+        position="bottom-right"
         pauseOnHover={false}
         progressStyle={{ background: "blue" }}
-        limit={2}
+        limit={1}
         autoClose={2500}
+        theme={colorMode === "dark" ? "dark" : "light"}
       />
     </div>
   );

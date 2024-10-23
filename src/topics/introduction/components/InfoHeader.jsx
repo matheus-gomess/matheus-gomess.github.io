@@ -63,7 +63,7 @@ export default function InfoHeader() {
             color={colorMode === "dark" ? "white" : "black"}
             style={{ transition: "color 0.3s ease" }}
             onMouseOver={(e) => (e.currentTarget.style.color = "green")}
-            onMouseOut={(e) => (e.currentTarget.style.color = "white")}
+            onMouseOut={(e) => (e.currentTarget.style.color = colorMode === "dark" ? "white" : "black")}
           />
         </a>
         <a
@@ -76,7 +76,7 @@ export default function InfoHeader() {
             color={colorMode === "dark" ? "white" : "black"}
             style={{ transition: "color 0.3s ease" }}
             onMouseOver={(e) => (e.currentTarget.style.color = "#3b5998")}
-            onMouseOut={(e) => (e.currentTarget.style.color = "white")}
+            onMouseOut={(e) => (e.currentTarget.style.color = colorMode === "dark" ? "white" : "black")}
           />
         </a>
         <a
@@ -89,7 +89,7 @@ export default function InfoHeader() {
             color={colorMode === "dark" ? "white" : "black"}
             style={{ transition: "color 0.3s ease" }}
             onMouseOver={(e) => (e.currentTarget.style.color = "#c862dc")}
-            onMouseOut={(e) => (e.currentTarget.style.color = "white")}
+            onMouseOut={(e) => (e.currentTarget.style.color = colorMode === "dark" ? "white" : "black")}
           />
         </a>
       </Container>

@@ -45,7 +45,7 @@ export default function Header() {
         bgColor={colorMode === "dark" ? "rgba(0, 0, 0, 0.8)" : "rgba(250, 250, 252, 0.8)"}
         position="fixed"
         top="0px"
-        boxShadow={colorMode === "dark" ? "0 10px 35px rgba(255, 255, 255, 0.175)" : "0 10px 35px rgba(0, 0, 0, 0.1)"}
+        boxShadow={colorMode === "dark" ? "0 10px 35px rgba(255, 255, 255, 0.175)" : "0 10px 35px rgba(0, 0, 0, 0.175)"}
         zIndex="1"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

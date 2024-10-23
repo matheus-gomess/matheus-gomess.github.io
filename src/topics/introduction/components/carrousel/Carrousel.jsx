@@ -115,7 +115,6 @@ export default function ImageCarousel() {
               >
                 website
               </Box>
-              .
             </Text>
             <Text textDecoration="underline" textDecorationColor="#003ba1">
               Vamos construir o seu juntos!
