@@ -1,4 +1,4 @@
-import { Container, Text } from "@chakra-ui/react";
+import { Container, Text, useColorMode } from "@chakra-ui/react";
 import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { MdOutlineWatchLater } from "react-icons/md";
@@ -8,6 +8,7 @@ import ChoosingTheme from "../../../components/choosingTheme";
 
 export default function InfoHeader() {
   const phoneNumber = "+55 51 98036-3636";
+  const { colorMode } = useColorMode();
 
   const handleCopy = () => {
     navigator.clipboard.writeText(phoneNumber);
@@ -16,7 +17,7 @@ export default function InfoHeader() {
   return (
     <Container
       minWidth="100%"
-      bgColor="#0a0a0a"
+      bgColor={colorMode === "dark" ? "#0a0a0a" : "#f5f5f5"}
       height="5vh"
       color="#969696"
       display="flex"
@@ -59,7 +60,7 @@ export default function InfoHeader() {
         >
           <FaWhatsapp
             size={20}
-            color="white"
+            color={colorMode === "dark" ? "white" : "black"}
             style={{ transition: "color 0.3s ease" }}
             onMouseOver={(e) => (e.currentTarget.style.color = "green")}
             onMouseOut={(e) => (e.currentTarget.style.color = "white")}
@@ -72,7 +73,7 @@ export default function InfoHeader() {
         >
           <FaLinkedin
             size={20}
-            color="white"
+            color={colorMode === "dark" ? "white" : "black"}
             style={{ transition: "color 0.3s ease" }}
             onMouseOver={(e) => (e.currentTarget.style.color = "#3b5998")}
             onMouseOut={(e) => (e.currentTarget.style.color = "white")}
@@ -85,14 +86,14 @@ export default function InfoHeader() {
         >
           <FaInstagram
             size={20}
-            color="white"
+            color={colorMode === "dark" ? "white" : "black"}
             style={{ transition: "color 0.3s ease" }}
             onMouseOver={(e) => (e.currentTarget.style.color = "#c862dc")}
             onMouseOut={(e) => (e.currentTarget.style.color = "white")}
           />
         </a>
       </Container>
-      <ChoosingTheme color="white" />
+      <ChoosingTheme color={colorMode === "dark" ? "white" : "black"} />
     </Container>
   );
 }

@@ -6,18 +6,18 @@ export default function Outset() {
     <Box minH="85vh" id="start" paddingRight="300px" paddingLeft="300px" paddingTop="120px">
       <Box display="flex" gap="200px">
         <Stack spacing={4} maxW="1200px" mx="auto">
-          <Text fontSize="sm" color="gray.500" textTransform="uppercase">
+          <Text fontSize="sm" color="#969696" textTransform="uppercase">
             Our Services
           </Text>
-          <Text fontSize="5xl" fontWeight="bold" color="black">
+          <Text fontSize="5xl" fontWeight="bold">
             Your business goals are our priority
           </Text>
-          <Text fontSize="lg" color="gray.600" maxW="600px">
+          <Text fontSize="lg" maxW="600px">
             Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
             exercitation.
           </Text>
-          <Text fontSize="lg" color="gray.600" maxW="600px">
+          <Text fontSize="lg" maxW="600px">
             Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam.
           </Text>

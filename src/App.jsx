@@ -39,8 +39,6 @@ function App() {
         fontFamily: "DM Sans, sans-serif",
         minHeight: "100vh",
         maxWidth: "100vw",
-        color: "white",
-        backgroundColor: "#ffffff"
       }}
     >
       <ScrollToTop />

@@ -32,6 +32,7 @@ export default function ImageCarousel() {
       <div
         style={{
           position: "absolute",
+          overflow: "hidden",
           bottom: "20px",
           width: "100%",
           display: "flex",
@@ -254,4 +255,4 @@ export default function ImageCarousel() {
       `}</style>
     </Box>
   );
-};
+}

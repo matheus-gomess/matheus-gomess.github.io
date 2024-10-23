@@ -23,7 +23,7 @@ const ScrollToTop = () => {
   return (
     <>
       {isVisible && (
-        <Link href="#introduction" style={{ textDecoration: "none" }}>
+        <Link href="#introduction" style={{ textDecoration: "none",  }}>
           <Tooltip
             label="Voltar ao topo"
             aria-label="Rolar para o topo"
@@ -36,6 +36,7 @@ const ScrollToTop = () => {
               size="lg"
               icon={<ArrowUpIcon boxSize={6} color="white" />}
               aria-label="Scroll to top"
+              zIndex="999"
               bgColor="rgb(26, 31, 36)"
               _hover={{ bgColor: "rgb(0, 99, 217)" }}
               borderRadius="full"
