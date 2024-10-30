@@ -30,12 +30,9 @@ export default function SliderExamples() {
                     el.classList.remove("gallery-item-1");
                     el.classList.remove("gallery-item-2");
                     el.classList.remove("gallery-item-3");
-                    el.classList.remove("gallery-item-4");
-                    el.classList.remove("gallery-item-5");
-                    el.classList.remove("gallery-item-6");
                 });
 
-                this.carouselArray.slice(0, 6).forEach((el, i) => {
+                this.carouselArray.slice(0, 3).forEach((el, i) => {
                     el.classList.add(`gallery-item-${i + 1}`);
                 });
             }
@@ -84,9 +81,6 @@ export default function SliderExamples() {
                 <Image className="gallery-item gallery-item-1" src={codeImage} />
                 <Image className="gallery-item gallery-item-2" src={code2} />
                 <Image className="gallery-item gallery-item-3" src={macbookImage} />
-                <Image className="gallery-item gallery-item-4" src={code2} />
-                <Image className="gallery-item gallery-item-5" src={codeImage} />
-                <Image className="gallery-item gallery-item-6" src={macbookImage} />
             </Box>
             <Box className="gallery-controls"></Box>
         </Container>
