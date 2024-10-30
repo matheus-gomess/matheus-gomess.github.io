@@ -1,4 +1,5 @@
 import { Box, Heading, Text, useColorMode } from "@chakra-ui/react";
+import SliderExamples from "./SliderExamples";
 
 export default function Examples() {
   const { colorMode } = useColorMode();
@@ -6,7 +7,7 @@ export default function Examples() {
   return (
     <Box
       minH="85vh"
-      bgColor={colorMode === "dark" ? "#080808" : "#f7f7f7"}
+      bgColor={colorMode === "dark" ? "#131313" : "#ececec"}
       id="examples"
       paddingRight="300px"
       paddingLeft="300px"
@@ -16,7 +17,7 @@ export default function Examples() {
       <Box
         display="flex"
         alignItems="center"
-        height="60vh"
+        height="10vh"
         justifyContent="center"
       >
         <Text>
@@ -24,6 +25,7 @@ export default function Examples() {
           1920x1080 quanto por smartphone
         </Text>
       </Box>
+      <SliderExamples />
     </Box>
   );
 }

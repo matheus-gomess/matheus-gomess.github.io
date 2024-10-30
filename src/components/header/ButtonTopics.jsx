@@ -20,7 +20,7 @@ export default function ButtonTopics({ title, href, index }) {
             color:"#0063D9"
           },
           "&:hover::after": {
-            width: "110%",
+            width: "100%",
           },
           "&::after": {
             content: '" "',

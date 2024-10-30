@@ -1,0 +1,137 @@
+.gallery {
+  width: 100%;
+}
+
+.gallery-container {
+  align-items: center;
+  display: flex;
+  height: 400px;
+  margin: 0 auto;
+  max-width: 1000px;
+  position: relative;
+}
+
+.gallery-item {
+  height: 200px;
+  position: absolute;
+  transition: all 0.4s ease;
+  width: 300px;
+  z-index: 0;
+  border-radius: 15px;
+  background-size: contain;
+}
+
+.gallery-item-1 {
+  left: 15%;
+  opacity: 0.4;
+  transform: translateX(-50%);
+}
+
+.gallery-item-2,
+.gallery-item-4 {
+  height: 250px;
+  opacity: 0.8;
+  width: 380px;
+  z-index: 1;
+}
+
+.gallery-item-2 {
+  left: 30%;
+  transform: translateX(-50%);
+}
+
+.gallery-item-3 {
+  box-shadow: -2px 5px 13px 6px rgba(0, 0, 0, 0.35);
+  height: 350px;
+  opacity: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 480px;
+  z-index: 2;
+}
+
+.gallery-item-4 {
+  left: 70%;
+  transform: translateX(-50%);
+}
+
+.gallery-item-5 {
+  left: 85%;
+  opacity: 0.4;
+  transform: translateX(-50%);
+}
+
+.gallery-item-6 {
+  opacity: 0;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.gallery-controls {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+}
+
+.gallery-controls button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 0 30px;
+  padding: 0 12px;
+  text-transform: capitalize;
+}
+
+.gallery-controls-button:focus {
+  outline: none;
+}
+
+.gallery-controls-Anterior {
+  position: relative;
+}
+
+.gallery-controls-Anterior::before {
+  border-color: var(--arrow-color);
+  border: solid;
+  border-width: 0 5px 5px 0;
+  content: "";
+  display: inline-block;
+  height: 5px;
+  left: -30px;
+  padding: 10px;
+  position: absolute;
+  top: 25%;
+  transform: rotate(135deg) translateY(-50%);
+  transition: left 0.15s ease-in-out;
+  width: 5px;
+}
+
+.gallery-controls-Anterior:hover::before {
+  left: -40px;
+  border-color: #005af5;
+}
+
+.gallery-controls-Próximo {
+  position: relative;
+}
+.gallery-controls-Próximo::before {
+  border-color: var(--arrow-color);
+  border: solid;
+  border-width: 0 5px 5px 0;
+  content: "";
+  display: inline-block;
+  height: 5px;
+  padding: 10px;
+  position: absolute;
+  right: -30px;
+  top: 45%;
+  transform: rotate(-45deg) translateY(-50%);
+  transition: right 0.15s ease-in-out;
+  width: 5px;
+}
+
+.gallery-controls-Próximo:hover::before {
+  right: -40px;
+  border-color: #005af5;
+}
