@@ -5,27 +5,29 @@ export default function Examples() {
   const { colorMode } = useColorMode();
 
   return (
-    <Box
-      minH="85vh"
-      bgColor={colorMode === "dark" ? "#131313" : "#ececec"}
-      id="examples"
-      paddingRight="300px"
-      paddingLeft="300px"
-      paddingTop="120px"
-    >
-      <Heading>Exemplos de layouts</Heading>
+    <>
+      <Box id="examples" minH="52px" />
       <Box
-        display="flex"
-        alignItems="center"
-        height="10vh"
-        justifyContent="center"
+        minH="85vh"
+        bgColor={colorMode === "dark" ? "#131313" : "#ececec"}
+        paddingRight="300px"
+        paddingLeft="300px"
+        paddingTop="120px"
       >
-        <Text>
-          Colocar aqui o carrousel mostrando tanto o modelo das páginas em
-          1920x1080 quanto por smartphone
-        </Text>
+        <Heading>Exemplos de layouts</Heading>
+        <Box
+          display="flex"
+          alignItems="center"
+          height="10vh"
+          justifyContent="center"
+        >
+          <Text>
+            Colocar aqui o carrousel mostrando tanto o modelo das páginas em
+            1920x1080 quanto por smartphone
+          </Text>
+        </Box>
+        <SliderExamples />
       </Box>
-      <SliderExamples />
-    </Box>
+    </>
   );
 }

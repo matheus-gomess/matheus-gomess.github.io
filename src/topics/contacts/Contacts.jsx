@@ -29,8 +29,8 @@ export default function Contacts() {
 
   return (
     <Box
-      bgColor={colorMode === "dark" ? "#f5f5f5" : "#0a0a0a"}
-      color={colorMode === "dark" ? "black" : "white"}
+      bgColor={colorMode === "dark" ? "#0a0a0a" : "#f5f5f5"}
+      color={colorMode === "dark" ? "white" : "black"}
       minH="372px"
       id="contacts"
       paddingRight="300px"
@@ -40,7 +40,7 @@ export default function Contacts() {
       <Box display="flex" justifyContent="space-between" height="fit-content">
         <Container padding="0px">
           <Box padding="0px" margin="0px" maxH="90px" maxW="553px">
-            <Image src={colorMode === "dark" ? proximoWebBlack : proximoWebWhite} w="100%" h="100%" />
+            <Image src={colorMode === "dark" ? proximoWebWhite : proximoWebBlack} w="100%" h="100%" />
           </Box>
         </Container>
         <Container padding="0px">
@@ -69,7 +69,7 @@ export default function Contacts() {
           >
             <Stack spacing={3} direction="column">
               {links.map((link) => (
-                <ButtonLinks href={link.href} title={link.name} />
+                <ButtonLinks href={link.href} title={link.name} key={link.name} />
               ))}
             </Stack>
           </UnorderedList>
@@ -80,7 +80,7 @@ export default function Contacts() {
           position="absolute"
           left="0"
           right="0"
-          background={colorMode === "dark" ?  "radial-gradient(circle, #000000 0%, rgb(255,255,255) 110%)" : "radial-gradient(circle, rgb(255,255,255) 0%, rgb(0,0,0) 110%)"}
+          background={colorMode === "dark" ? "radial-gradient(circle, rgb(255,255,255) 0%, rgb(0,0,0) 110%)" : "radial-gradient(circle, #000000 0%, rgb(255,255,255) 110%)"}
           height="1px"
           zIndex="0"
           width="100%"

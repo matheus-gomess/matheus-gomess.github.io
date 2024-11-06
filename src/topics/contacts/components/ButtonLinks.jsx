@@ -9,7 +9,7 @@ export default function ButtonLinks({ href, title }) {
         <Button
           padding="0px"
           fontSize="17px"
-          color={colorMode === "dark" ? "black" : "white"}
+          color={colorMode === "dark" ? "white" : "black"}
           bgColor="transparent"
           position="relative"
           _hover={{}}
@@ -25,7 +25,7 @@ export default function ButtonLinks({ href, title }) {
               content: '""',
               width: "0%",
               height: "1px",
-              backgroundColor: colorMode === "dark" ? "black" : "white",
+              backgroundColor: colorMode === "dark" ? "white" : "black",
               position: "absolute",
               bottom: "3px",
               left: "0px",
