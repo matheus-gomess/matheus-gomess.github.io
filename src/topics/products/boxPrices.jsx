@@ -3,7 +3,7 @@ import { Box, Heading, Text, Button, Container, Stack } from "@chakra-ui/react";
 function BoxPrices({
   title,
   price,
-  attendees,
+  pages,
   hours,
   features,
   highlight,
@@ -14,7 +14,7 @@ function BoxPrices({
       _hover={{
         transform: "scale(1.05)",
         boxShadow: gradientBg
-          ? "0px 0px 20px 10px #693390" : highlight ? "0px 0px 20px 1px #00a2ff81" :
+          ? "0px 0px 20px 10px #eba66e" : highlight ? "0px 0px 20px 1px #00a2ff81" :
           "0px 5px 13px 6px rgba(0, 0, 0, 0.35)",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
       }}
@@ -26,7 +26,7 @@ function BoxPrices({
       borderRadius="20px"
       boxShadow="0px 5px 13px 6px rgba(0, 0, 0, 0.35)"
       padding="24px"
-      border={highlight ? "2px solid #00a2ff81" : "none"}
+      border={highlight ? "2px solid #00a2ff81" : gradientBg ? "2px solid #eba66e" : "none"}
       overflow="hidden"
     >
       {/* Camada diagonal */}
@@ -76,7 +76,8 @@ function BoxPrices({
         {price}
       </Text>
       <Text color="gray.200" position="relative" zIndex="1">
-        Live attendees: {attendees}
+        {pages === 1 ? "- Uma única página" : pages === 5 ? "- 5 páginas" : "- 20 páginas" }
+        
       </Text>
       <Text color="gray.200" position="relative" zIndex="1">
         Hours per month: {hours}
@@ -100,7 +101,7 @@ function BoxPrices({
         Selecionar Plano
       </Button>
 
-      <style jsx>{`
+      <style>{`
         @keyframes pulse {
           0% {
             transform: scale(1);
@@ -125,15 +126,15 @@ export default function AllPrices() {
     <Stack direction="row" spacing="8" justify="center" mt="10" mb="300px">
       <BoxPrices
         title="Plano Basic"
-        price="$34/mo"
-        attendees="100+"
+        price="R$189/mês"
+        pages={1}
         hours="10"
         features={["Transaction fee: 5%", "2 hr sessions"]}
       />
       <BoxPrices
         title="Plano Plus"
-        price="$62/mo"
-        attendees="250+"
+        price="R$339/mês"
+        pages={5}
         hours="20"
         features={[
           "Transaction fee: 3%",
@@ -144,8 +145,7 @@ export default function AllPrices() {
       />
       <BoxPrices
         title="Plano Pro"
-        price="$136/mo"
-        attendees="1000+"
+        price="R$748/mês"
         hours="40"
         features={["Transaction fee: 2%", "6 hr sessions", "Priority support"]}
         gradientBg

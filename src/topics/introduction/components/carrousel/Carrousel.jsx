@@ -241,7 +241,7 @@ export default function ImageCarousel() {
         />
       </Box>
 
-      <style jsx="true">{`
+      <style>{`
         .slick-dots li button:before {
           color: white;
           opacity: 0.5;

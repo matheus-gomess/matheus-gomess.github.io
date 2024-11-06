@@ -5,7 +5,8 @@ import code2 from "../../assets/code2.png";
 import macbookImage from "../../assets/macbookCode.png";
 import "./SliderCss.css";
 
-export default function SliderExamples() {
+export default function SliderExamples({ valueDesign }) {
+    console.log(valueDesign);
     const { colorMode } = useColorMode();
     const arrowColor = colorMode === "light" ? "#000" : "#fff";
     useEffect(() => {

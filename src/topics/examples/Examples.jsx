@@ -1,8 +1,15 @@
-import { Box, Heading, Text, useColorMode } from "@chakra-ui/react";
+import { Box, Select, Text, useColorMode } from "@chakra-ui/react";
 import SliderExamples from "./SliderExamples";
+import { useState } from "react";
 
 export default function Examples() {
   const { colorMode } = useColorMode();
+  const [valueDesign, setValueDesign] = useState("Computador");
+
+  const changingDesign = (event) => {
+    const selectValue = event.target.value
+    setValueDesign(selectValue);
+  }
 
   return (
     <>
@@ -14,7 +21,18 @@ export default function Examples() {
         paddingLeft="300px"
         paddingTop="120px"
       >
-        <Heading>Exemplos de layouts</Heading>
+        <Box display="flex" alignItems="center">
+          <Text fontSize="5xl" fontWeight="bold">
+            Exemplos de layouts
+          </Text>
+          <Box marginLeft="20px" display="flex" minWidth="350px" alignItems="end">
+            <Select maxWidth="200px" value={valueDesign} onChange={changingDesign}>
+              <option>Computador</option>
+              <option>Smartphone</option>
+            </Select>
+            <Text marginLeft="5px" fontSize="sm" color="#969696">Modo de design</Text>
+          </Box>
+        </Box>
         <Box
           display="flex"
           alignItems="center"
@@ -26,7 +44,7 @@ export default function Examples() {
             1920x1080 quanto por smartphone
           </Text>
         </Box>
-        <SliderExamples />
+        <SliderExamples valueDesign={valueDesign}/>
       </Box>
     </>
   );
