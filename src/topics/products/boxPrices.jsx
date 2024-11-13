@@ -46,23 +46,6 @@ function BoxPrices({
         />
       )}
 
-      {/* Efeito de brilho animado para o plano "Pro" */}
-      {gradientBg && (
-        <Box
-          position="absolute"
-          top="0"
-          left="0"
-          width="100%"
-          height="100%"
-          borderRadius="10px"
-          bgGradient="radial(#ffffff58, transparent)"
-          opacity="0.3"
-          animation="pulse 2s infinite"
-          zIndex="0"
-          pointerEvents="none" // para garantir que o efeito de brilho não bloqueie o conteúdo
-        />
-      )}
-
       <Heading color="white" mb="4" position="relative" zIndex="1">
         {title}
       </Heading>
