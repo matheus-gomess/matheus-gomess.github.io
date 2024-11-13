@@ -62,7 +62,6 @@ export default function ImageCarousel() {
     return () => clearInterval(interval);
   }, [currentIndex]);
 
-  // Função para retornar estilos personalizados com base no índice atual
   const getTextStyles = () => {
     switch (currentIndex) {
       case 0:

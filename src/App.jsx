@@ -44,9 +44,7 @@ function App() {
       }}
     >
       <ScrollToTop />
-      <AnimatePresence>
-        {showHeader && <Header />}
-      </AnimatePresence>
+      <AnimatePresence>{showHeader && <Header />}</AnimatePresence>
       <Introduction />
       <Start />
       <Examples />

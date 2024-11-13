@@ -14,8 +14,8 @@ export default function ButtonTopics({ title, href, index }) {
           letterSpacing:"-0.374px",
           color: colorMode === "dark" ? "white" : "black",
           padding: "0px",
-          fontSize: "14pt",
-          fontWeight: "500",
+          fontSize: "17pt",
+          fontWeight: "600",
           "&:hover":{
             color:"#0063D9"
           },
@@ -28,7 +28,7 @@ export default function ButtonTopics({ title, href, index }) {
             height: "3px",
             backgroundColor: "#0063D9",
             position: "absolute",
-            bottom: "-6px",
+            bottom: "-16px",
             left: "0px",
             transition: "0.3s ease-in-out",
           },

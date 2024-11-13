@@ -9,8 +9,8 @@ import {
   UnorderedList,
   useColorMode
 } from "@chakra-ui/react";
-import proximoWebWhite from "../../assets/proximowebwhitetransparent.png";
-import proximoWebBlack from "../../assets/proximowebblacktransparent.png"
+import proximoWebWhite from "../../assets/proximowebwhite.png";
+import proximoWebBlack from "../../assets/proximowebblack.png"
 import ButtonLinks from "./components/ButtonLinks";
 
 export default function Contacts() {

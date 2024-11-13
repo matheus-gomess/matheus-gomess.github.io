@@ -1,7 +1,7 @@
 import { Box, Image, Container, useColorMode } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import ProximoWebBlackTransparent from "../../assets/proximowebblacktransparent.png";
-import ProximoWebWhiteTransparent from "../../assets/proximowebwhitetransparent.png";
+import ProximoWebBlackHorizontal from "../../assets/proximowebblackhorizontal.png";
+import ProximoWebWhiteHorizontal from "../../assets/proximowebwhitehorizontal.png";
 import ButtonTopics from "./ButtonTopics";
 import ChoosingTheme from "../choosingTheme";
 
@@ -35,7 +35,7 @@ export default function Header() {
         padding="20px"
         display="flex"
         justifyContent="space-between"
-        maxH="52px"
+        maxH="72px"
         borderBottom="1px"
         alignItems="center"
         w="100%"
@@ -52,8 +52,8 @@ export default function Header() {
         exit={{ y: -100, opacity: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <Container padding="0px" margin="0px" maxH="65px" maxW="400px">
-          <Image src={colorMode === "dark" ? ProximoWebWhiteTransparent : ProximoWebBlackTransparent} w="100%" h="100%" />
+        <Container padding="0px" margin="0px" maxH="45px" maxW="250px">
+          <Image src={colorMode === "dark" ? ProximoWebWhiteHorizontal : ProximoWebBlackHorizontal} w="100%" h="100%" />
         </Container>
         <Container margin="0px" minWidth="250px" display="flex" alignItems="center" justifyContent="space-between" paddingRight="0px">
           {routes.map((route, index) => (

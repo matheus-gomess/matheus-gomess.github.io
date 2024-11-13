@@ -27,7 +27,7 @@ export default function ChoosingTheme({ color }) {
               exit={{ y: 10, opacity: 0 }}
               transition={{ duration: 0.25 }}
             >
-              <IoMdMoon size={22} color={color} />
+              <IoMdMoon size={25} color={color} />
             </motion.div>
           ) : (
             <motion.div
@@ -37,7 +37,7 @@ export default function ChoosingTheme({ color }) {
               exit={{ y: 10, opacity: 0 }}
               transition={{ duration: 0.25 }}
             >
-              <IoMdSunny size={22} color={color} />
+              <IoMdSunny size={25} color={color} />
             </motion.div>
           )}
         </AnimatePresence>
