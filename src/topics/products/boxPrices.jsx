@@ -1,4 +1,22 @@
-import { Box, Heading, Text, Button, Container, Stack } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Text,
+  Button,
+  Container,
+  Stack,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { useState } from "react";
+import { FaCrown } from "react-icons/fa";
+import { GoPlus } from "react-icons/go";
 
 function BoxPrices({
   title,
@@ -8,25 +26,34 @@ function BoxPrices({
   features,
   highlight,
   gradientBg,
+  onSelectPlan,
 }) {
   return (
     <Container
       _hover={{
         transform: "scale(1.05)",
         boxShadow: gradientBg
-          ? "0px 0px 20px 10px #eba66e" : highlight ? "0px 0px 20px 1px #00a2ff81" :
-          "0px 5px 13px 6px rgba(0, 0, 0, 0.35)",
+          ? "0px 0px 20px 10px #eba66e"
+          : highlight
+          ? "0px 0px 20px 1px #00a2ff81"
+          : "0px 5px 13px 6px rgba(0, 0, 0, 0.35)",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
       }}
       transition="0.2s ease"
       position="relative"
-      bgGradient={gradientBg ? "linear(to-r, #7141a7, #612579)" : "white"}
+      bgGradient={gradientBg ? "linear(to-r, #4e2d75, #3d1f5a)" : "white"}
       minHeight="400px"
       maxWidth="300px"
       borderRadius="20px"
       boxShadow="0px 5px 13px 6px rgba(0, 0, 0, 0.35)"
       padding="24px"
-      border={highlight ? "2px solid #00a2ff81" : gradientBg ? "2px solid #eba66e" : "none"}
+      border={
+        highlight
+          ? "2px solid #00a2ff81"
+          : gradientBg
+          ? "2px solid #eba66e"
+          : "none"
+      }
       overflow="hidden"
     >
       {/* Camada diagonal */}
@@ -38,36 +65,42 @@ function BoxPrices({
           height="400px"
           bottom="40px"
           left="300px"
-          bgGradient="linear(to-b, #6a3492, #a74185)"
+          bgGradient="linear(to-b, #4a276a, #6e327d)"
           transform="rotate(-25deg)"
           transformOrigin="bottom left"
           opacity="0.35"
           zIndex="0"
         />
       )}
-
-      {/* Efeito de brilho animado para o plano "Pro" */}
-      {gradientBg && (
-        <Box
-          position="absolute"
-          top="0"
-          left="0"
-          width="100%"
-          height="100%"
-          borderRadius="10px"
-          bgGradient="radial(#ffffff58, transparent)"
-          opacity="0.3"
-          animation="pulse 2s infinite"
-          zIndex="0"
-          pointerEvents="none" // para garantir que o efeito de brilho não bloqueie o conteúdo
-        />
-      )}
-
-      <Heading color="white" mb="4" position="relative" zIndex="1">
-        {title}
-      </Heading>
+      <Box display="flex" alignItems="start" gap="7px">
+        <Heading color="white" mb="4" position="relative" zIndex="1">
+          {title}
+        </Heading>
+        <Box fontSize="32px">
+          {highlight ? <GoPlus color="white" /> : gradientBg ? <FaCrown color="#eba66e" /> : null}
+          
+        </Box>
+      </Box>
+      <Text fontSize="22px" color="gray.200" position="relative" zIndex="1">
+        {pages === 1
+          ? "- Uma única página"
+          : pages === 5
+          ? "- 5 páginas"
+          : "- 20 páginas"}
+      </Text>
+      <Text color="gray.200" fontSize="22px" position="relative" zIndex="1">
+        - {hours} horas de suporte por dia 
+      </Text>
+      <Box mt="4" position="relative"  color="gray.200" zIndex="1">
+        {features.map((feature, index) => (
+          <Text key={index} color="gray.100" fontSize="16px">
+            <Box as="span" color={gradientBg ? "#eba66e" : "green"}>✔</Box> {feature}
+          </Text>
+        ))}
+      </Box>
       <Text
         fontSize="3xl"
+        mt="8"
         fontWeight="bold"
         color="white"
         position="relative"
@@ -75,28 +108,15 @@ function BoxPrices({
       >
         {price}
       </Text>
-      <Text color="gray.200" position="relative" zIndex="1">
-        {pages === 1 ? "- Uma única página" : pages === 5 ? "- 5 páginas" : "- 20 páginas" }
-        
-      </Text>
-      <Text color="gray.200" position="relative" zIndex="1">
-        Hours per month: {hours}
-      </Text>
-      <Box mt="4" position="relative" zIndex="1">
-        {features.map((feature, index) => (
-          <Text key={index} color="gray.100" fontSize="sm">
-            ✔ {feature}
-          </Text>
-        ))}
-      </Box>
       <Button
         bgColor="orange.400"
         color="white"
-        mt="10"
+        mt="2"
         width="full"
-        _hover={{ bgColor:"#eba66e" }}
+        _hover={{ bgColor: "#ac7950" }}
         position="relative"
         zIndex="1"
+        onClick={() => onSelectPlan(title, price, pages, hours, features)}
       >
         Selecionar Plano
       </Button>
@@ -121,35 +141,86 @@ function BoxPrices({
   );
 }
 
-export default function AllPrices() {
+export default function AllPrices({type}) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selectedPlan, setSelectedPlan] = useState(null);
+
+  const handleSelectPlan = (title, price, pages, hours, features) => {
+    setSelectedPlan({ title, price, pages, hours, features });
+    onOpen();
+  };
+
   return (
-    <Stack direction="row" spacing="8" justify="center" mt="10" mb="300px">
-      <BoxPrices
-        title="Plano Basic"
-        price="R$189/mês"
-        pages={1}
-        hours="10"
-        features={["Transaction fee: 5%", "2 hr sessions"]}
-      />
-      <BoxPrices
-        title="Plano Plus"
-        price="R$339/mês"
-        pages={5}
-        hours="20"
-        features={[
-          "Transaction fee: 3%",
-          "4 hr sessions",
-          "Multistream to 2 platforms",
-        ]}
-        highlight
-      />
-      <BoxPrices
-        title="Plano Pro"
-        price="R$748/mês"
-        hours="40"
-        features={["Transaction fee: 2%", "6 hr sessions", "Priority support"]}
-        gradientBg
-      />
-    </Stack>
+    <>
+      <Stack direction="row" spacing="8" justify="center" mt="10" mb="250px">
+        <BoxPrices
+          title="Plano Basic"
+          price={type === "Monthly" ? "R$189/mês" : "R$1.590/ano"}
+          pages={1}
+          hours="2"
+          features={["Página estática", "Design Responsivo"]}
+          onSelectPlan={handleSelectPlan}
+        />
+        <BoxPrices
+          title="Plano Plus"
+          price={type === "Monthly" ? "R$339/mês" : "R$2.847/ano"}
+          pages={5}
+          hours="4"
+          features={[
+            "Animações",
+            "Componentes personalizados"
+          ]}
+          highlight
+          onSelectPlan={handleSelectPlan}
+        />
+        <BoxPrices
+          title="Plano Pro"
+          price={type === "Monthly" ? "R$748/mês" : "R$6.283/ano"}
+          hours="8"
+          features={[
+            "Animações",
+            "Componentes personalizados",
+            "Suporte priorizado",
+            "Utilização de API",
+            "Ajustes e assistência técnica 24/7"
+          ]}
+          gradientBg
+          onSelectPlan={handleSelectPlan}
+        />
+      </Stack>
+
+      {/* Modal para exibir os detalhes do plano */}
+      {selectedPlan && (
+        <Modal isOpen={isOpen} onClose={onClose} isCentered>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>{selectedPlan.title}</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <Text>{`Preço: ${selectedPlan.price}`}</Text>
+              <Text>{`Páginas: ${
+                selectedPlan.pages === 1
+                  ? "Uma única página"
+                  : selectedPlan.pages === 5
+                  ? "5 páginas"
+                  : "20 páginas"
+              }`}</Text>
+              <Text>{`Horas por mês: ${selectedPlan.hours}`}</Text>
+              <Box mt="4">
+                {selectedPlan.features.map((feature, index) => (
+                  <Text key={index}>{`✔ ${feature}`}</Text>
+                ))}
+              </Box>
+            </ModalBody>
+
+            <ModalFooter>
+              <Button colorScheme="blue" mr={3} onClick={onClose}>
+                Fechar
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      )}
+    </>
   );
 }

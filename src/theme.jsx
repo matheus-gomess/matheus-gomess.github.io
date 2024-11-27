@@ -2,7 +2,7 @@ const { extendTheme } = require("@chakra-ui/react");
 
 const theme = extendTheme({
     config: {
-        initialColorMode: "white",
+        initialColorMode: "light",
         useSystemColorMode: false,
     },
 

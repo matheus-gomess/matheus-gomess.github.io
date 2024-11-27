@@ -51,7 +51,7 @@ export default function Products() {
         overflow="hidden"
       >
         <WaveDividerTop />
-        <Heading color="white" textAlign="center" mt="-19px">
+        <Heading color="white" textAlign="center" mt="-59px">
           Qual melhor plano para você?
         </Heading>
 
@@ -76,7 +76,7 @@ export default function Products() {
             Anual (30% OFF)
           </Button>
         </Box>
-        <AllPrices />
+        <AllPrices type={billingCycle}/>
         <WaveDivider />
       </Box>
     </>

@@ -33,17 +33,6 @@ export default function Examples() {
             <Text marginLeft="5px" fontSize="sm" color="#969696">Modo de design</Text>
           </Box>
         </Box>
-        <Box
-          display="flex"
-          alignItems="center"
-          height="10vh"
-          justifyContent="center"
-        >
-          <Text>
-            Colocar aqui o carrousel mostrando tanto o modelo das páginas em
-            1920x1080 quanto por smartphone
-          </Text>
-        </Box>
         <SliderExamples valueDesign={valueDesign}/>
       </Box>
     </>
