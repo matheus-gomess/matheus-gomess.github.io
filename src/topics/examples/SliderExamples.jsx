@@ -140,6 +140,7 @@ export default function SliderExamples({ valueDesign }) {
               style={{ display: "inline-block" }}
             >
               {selectedPlan}
+              {selectedPlan === "Pro" ? null : selectedPlan === "Plus" ? null : null }
             </motion.span>
           </AnimatePresence>
         </Heading>

@@ -5,18 +5,13 @@ import {
   Button,
   Container,
   Stack,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
-  useDisclosure,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaCrown } from "react-icons/fa";
 import { GoPlus } from "react-icons/go";
+import ModalBasic from "./modals/modalBasic";
+import ModalPlus from "./modals/modalPlus";
+import ModalPro from "./modals/modalPro";
 
 function BoxPrices({
   title,
@@ -26,9 +21,25 @@ function BoxPrices({
   features,
   highlight,
   gradientBg,
-  onSelectPlan,
 }) {
+  const [openModalBasic, setOpenModalBasic] = useState(false);
+  const [openModalPlus, setOpenModalPlus] = useState(false);
+  const [openModalPro, setOpenModalPro] = useState(false);
+
+  const handleCloseBasic = () => {
+    setOpenModalBasic(false);
+  }
+
+  const handleClosePlus = () => {
+    setOpenModalPlus(false);
+  }
+
+  const handleClosePro = () => {
+    setOpenModalPro(false);
+  }
+  
   return (
+    <>
     <Container
       _hover={{
         transform: "scale(1.05)",
@@ -120,7 +131,7 @@ function BoxPrices({
         _hover={{ bgColor: "#ac7950" }}
         position="relative"
         zIndex="1"
-        onClick={() => onSelectPlan(title, price, pages, hours, features)}
+        onClick={() => { gradientBg ? setOpenModalPro(true) : highlight ? setOpenModalPlus(true) : setOpenModalBasic(true) }}
       >
         Selecionar Plano
       </Button>
@@ -142,20 +153,16 @@ function BoxPrices({
         }
       `}</style>
     </Container>
+    <ModalBasic isOpen={openModalBasic} onClose={handleCloseBasic} />
+    <ModalPlus isOpen={openModalPlus} onClose={handleClosePlus} />
+    <ModalPro isOpen={openModalPro} onClose={handleClosePro} />
+    </>
   );
 }
 
 export default function AllPrices({type}) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [selectedPlan, setSelectedPlan] = useState(null);
-
-  const handleSelectPlan = (title, price, pages, hours, features) => {
-    setSelectedPlan({ title, price, pages, hours, features });
-    onOpen();
-  };
 
   return (
-    <>
       <Stack direction="row" spacing="8" justify="center" mt="10" mb="250px">
         <BoxPrices
           title="Plano Basic"
@@ -163,7 +170,6 @@ export default function AllPrices({type}) {
           pages={1}
           hours="2"
           features={["Página estática", "Design Responsivo"]}
-          onSelectPlan={handleSelectPlan}
         />
         <BoxPrices
           title="Plano Plus"
@@ -175,7 +181,6 @@ export default function AllPrices({type}) {
             "Componentes personalizados"
           ]}
           highlight
-          onSelectPlan={handleSelectPlan}
         />
         <BoxPrices
           title="Plano Pro"
@@ -189,42 +194,7 @@ export default function AllPrices({type}) {
             "Ajustes e assistência técnica 24/7"
           ]}
           gradientBg
-          onSelectPlan={handleSelectPlan}
         />
       </Stack>
-
-      {/* Modal para exibir os detalhes do plano */}
-      {selectedPlan && (
-        <Modal isOpen={isOpen} onClose={onClose} isCentered>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>{selectedPlan.title}</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <Text>{`Preço: ${selectedPlan.price}`}</Text>
-              <Text>{`Páginas: ${
-                selectedPlan.pages === 1
-                  ? "Uma única página"
-                  : selectedPlan.pages === 5
-                  ? "5 páginas"
-                  : "20 páginas"
-              }`}</Text>
-              <Text>{`Horas por mês: ${selectedPlan.hours}`}</Text>
-              <Box mt="4">
-                {selectedPlan.features.map((feature, index) => (
-                  <Text key={index}>{`✔ ${feature}`}</Text>
-                ))}
-              </Box>
-            </ModalBody>
-
-            <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={onClose}>
-                Fechar
-              </Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-      )}
-    </>
   );
 }
