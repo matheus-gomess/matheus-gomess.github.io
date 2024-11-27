@@ -98,6 +98,10 @@ function BoxPrices({
           </Text>
         ))}
       </Box>
+
+      <Heading color="white" mb="4" position="relative" zIndex="1">
+        {title}
+      </Heading>
       <Text
         fontSize="3xl"
         mt="8"
