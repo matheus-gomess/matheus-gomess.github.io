@@ -21,10 +21,9 @@ export default function Contacts() {
       href: "https://wa.me/5551980363636?text=Quero um site para impulsionar o meu negócio!",
     },
     {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/in/matheus-gomes-4334122b3/",
+      name: "E-Mail",
+      href: "mailto:matheusdrgomes@gmail.com",
     },
-    { name: "Instagram", href: "https://www.instagram.com/matheusrgomes_/" },
   ];
 
   return (

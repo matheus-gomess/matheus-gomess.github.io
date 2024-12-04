@@ -1,5 +1,6 @@
 import { Container, Text, useColorMode } from "@chakra-ui/react";
-import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { PiPhoneCallLight } from "react-icons/pi";
@@ -63,33 +64,26 @@ export default function InfoHeader() {
             color={colorMode === "dark" ? "white" : "black"}
             style={{ transition: "color 0.3s ease" }}
             onMouseOver={(e) => (e.currentTarget.style.color = "green")}
-            onMouseOut={(e) => (e.currentTarget.style.color = colorMode === "dark" ? "white" : "black")}
+            onMouseOut={(e) =>
+              (e.currentTarget.style.color =
+                colorMode === "dark" ? "white" : "black")
+            }
           />
         </a>
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://www.linkedin.com/in/matheus-gomes-4334122b3/"
+          href="mailto:matheusdrgomes@gmail.com"
         >
-          <FaLinkedin
+          <MdEmail
             size={20}
             color={colorMode === "dark" ? "white" : "black"}
             style={{ transition: "color 0.3s ease" }}
-            onMouseOver={(e) => (e.currentTarget.style.color = "#3b5998")}
-            onMouseOut={(e) => (e.currentTarget.style.color = colorMode === "dark" ? "white" : "black")}
-          />
-        </a>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://www.instagram.com/matheusrgomes_/"
-        >
-          <FaInstagram
-            size={20}
-            color={colorMode === "dark" ? "white" : "black"}
-            style={{ transition: "color 0.3s ease" }}
-            onMouseOver={(e) => (e.currentTarget.style.color = "#c862dc")}
-            onMouseOut={(e) => (e.currentTarget.style.color = colorMode === "dark" ? "white" : "black")}
+            onMouseOver={(e) => (e.currentTarget.style.color = "blue")}
+            onMouseOut={(e) =>
+              (e.currentTarget.style.color =
+                colorMode === "dark" ? "white" : "black")
+            }
           />
         </a>
       </Container>

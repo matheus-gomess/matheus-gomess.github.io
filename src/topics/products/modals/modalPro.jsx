@@ -13,6 +13,7 @@ import {
   } from "@chakra-ui/react";
   import proWeb from "../../../assets/examples/web/templateproweb.png";
   import proPhone from "../../../assets/examples/phone/templateprophone.png";
+import ButtonWhatsapp from "./buttonWhatsapp";
   
   export default function ModalPro({ isOpen, onClose }) {
     return (
@@ -54,15 +55,18 @@ import {
               </Flex>
               <Box flex="2" maxWidth="250px">
                 <Text fontSize="lg" fontWeight="bold" mb={2}>
-                  Preço: Pro
+                  Preço: R$748/mês | R$6.283/ano
                 </Text>
-                <Text mb={2}>Páginas: 5</Text>
-                <Text mb={2}>Horas por mês: 10</Text>
+                <Text mb={2}>- 20 páginas</Text>
+                <Text mb={2}>- 8 horas de suporte por dia</Text>
                 <Box mt="4">
-                  <Text>✔ Acesso personalizado</Text>
-                  <Text>✔ Suporte premium</Text>
-                  <Text>✔ Atualizações mensais</Text>
+                  <Text>✔ Animações</Text>
+                  <Text>✔ Componentes personalizados</Text>
+                  <Text>✔ Suporte priorizado</Text>
+                  <Text>✔ Utilização de API</Text>
+                  <Text>✔ Ajuste e assistência técnica 24/7</Text>
                 </Box>
+                <ButtonWhatsapp link={"https://wa.link/imukbs"}/>
               </Box>
             </Flex>
           </ModalBody>
