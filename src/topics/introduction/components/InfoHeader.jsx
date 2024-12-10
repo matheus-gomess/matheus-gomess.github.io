@@ -13,7 +13,7 @@ export default function InfoHeader() {
 
   const handleCopy = () => {
     navigator.clipboard.writeText(phoneNumber);
-    toast("Número copiado: " + phoneNumber);
+    toast(<Text fontWeight="bold">Número copiado:<br/> {phoneNumber}</Text>);
   };
   return (
     <Container

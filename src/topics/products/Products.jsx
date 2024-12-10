@@ -1,6 +1,10 @@
 import { Box, Heading, Button, useColorMode } from "@chakra-ui/react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import AllPrices from "./boxPrices";
+
+// Adicionamos Framer Motion para animação do fundo
+const MotionBox = motion(Box);
 
 function WaveDivider() {
   const { colorMode } = useColorMode();
@@ -23,11 +27,7 @@ function WaveDivider() {
 function WaveDividerTop() {
   const { colorMode } = useColorMode();
   return (
-    <Box
-      as="svg"
-      viewBox="0 0 1440 100"
-      width="100%"
-    >
+    <Box as="svg" viewBox="0 0 1440 100" width="100%">
       <path
         fill={colorMode === "dark" ? "#131313" : "#ececec"}
         d="M1440,0L1380,5C1320,10,1200,18,1080,20C960,22,840,18,720,12C600,6,480,2,360,4C240,6,120,16,60,20L0,24V0H1440Z"
@@ -42,8 +42,11 @@ export default function Products() {
 
   return (
     <>
-      <Box id="products" minH="54px" bgColor={colorMode === "dark" ? "#131313" : "#ececec"} />
-
+      <Box
+        id="products"
+        minH="54px"
+        bgColor={colorMode === "dark" ? "#131313" : "#ececec"}
+      />
       <Box
         minH="90vh"
         bgGradient="linear(to-r, #2E0F4A, #1B1B6A)"
@@ -54,29 +57,70 @@ export default function Products() {
         <Heading color="white" textAlign="center" mt="-59px">
           Qual melhor plano para você?
         </Heading>
-
         <Box display="flex" justifyContent="center" mt="6">
-          <Button
-            onClick={() => setBillingCycle("Monthly")}
-            color="white"
-            colorScheme={billingCycle === "Monthly" ? "blue" : "gray"}
-            variant={billingCycle === "Monthly" ? "solid" : "outline"}
-            borderColor="white"
-            mr="4"
+          <Box
+            display="flex"
+            justifyContent="center"
+            bg="#1C1048"
+            width="fit-content"
+            borderRadius="8px"
+            height="32px"
+            position="relative"
+            overflow="hidden"
           >
-            Mensal
-          </Button>
-          <Button
-            onClick={() => setBillingCycle("Annual")}
-            color="white"
-            borderColor="white"
-            colorScheme={billingCycle === "Annual" ? "blue" : "gray"}
-            variant={billingCycle === "Annual" ? "solid" : "outline"}
-          >
-            Anual (30% OFF)
-          </Button>
+            <MotionBox
+              position="absolute"
+              top="0"
+              left={billingCycle === "Monthly" ? 0 : "156px"}
+              width="148px"
+              height="100%"
+              bg="white"
+              borderRadius="8px"
+              zIndex={0}
+              initial={false}
+              animate={{
+                left: billingCycle === "Monthly" ? 0 : "156px",
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 32,
+              }}
+            />
+            <Button
+              onClick={() => setBillingCycle("Monthly")}
+              color={billingCycle === "Monthly" ? "black" : "white"}
+              bg="transparent"
+              _hover={{}}
+              _active={{}}
+              zIndex={1}
+              borderRadius="8px"
+              fontWeight="bold"
+              height="32px"
+              width="148px"
+              px="6"
+              mr="2"
+            >
+              Mensal
+            </Button>
+            <Button
+              onClick={() => setBillingCycle("Annual")}
+              color={billingCycle === "Annual" ? "black" : "white"}
+              bg="transparent"
+              _hover={{}}
+              _active={{}}
+              zIndex={1}
+              borderRadius="8px"
+              height="32px"
+              width="148px"
+              fontWeight="bold"
+              px="6"
+            >
+              Anual (30% OFF)
+            </Button>
+          </Box>
         </Box>
-        <AllPrices type={billingCycle}/>
+        <AllPrices type={billingCycle} />
         <WaveDivider />
       </Box>
     </>

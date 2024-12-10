@@ -18,15 +18,15 @@ export default function Outset() {
               Nosso propósito
             </Text>
             <Text fontSize="5xl" fontWeight="bold">
-              Fazer sua ideia estar aonde todo mundo está, na internet
+              Fazer sua ideia estar onde todo mundo está, na internet
             </Text>
-            <Text fontSize="lg" maxW="600px">
+            <Text fontSize="xl" maxW="600px">
               Hoje, o mundo inteiro está conectado. Com milhões de pessoas
               acessando a internet diariamente, ter sua ideia ou negócio
               presente nesse espaço é essencial. Não importa qual seja o seu
               projeto, um blog, loja virtual, ou aplicativo.
             </Text>
-            <Text fontSize="lg" maxW="600px">
+            <Text fontSize="xl" maxW="600px">
               Estar online aumenta suas chances de alcançar seu público-alvo.
               Nós ajudamos você a transformar sua ideia em uma presença digital
               forte e eficaz, conectando seu projeto às pessoas certas.

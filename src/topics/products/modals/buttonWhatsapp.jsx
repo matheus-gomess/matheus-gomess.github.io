@@ -11,8 +11,10 @@ export default function ButtonWhatsapp({ link }) {
         rel="noopener noreferrer"
         backgroundColor="green"
         _hover={{ backgroundColor: "#006900" }}
-        leftIcon={<FaWhatsapp />}
-        mt={4}
+        leftIcon={<FaWhatsapp fontSize="25px" />}
+        padding="15px 30px"
+        fontSize="xl"
+        borderRadius="full"
       >
         Clique para conversar
       </Button>
